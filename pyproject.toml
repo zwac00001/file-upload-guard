@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "file-upload-guard"
+version = "0.1.0"
+description = "Universal local file upload guard for agent platforms"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+  "pypdf>=5.0.0",
+  "python-docx>=1.1.2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=9.0.0",
+]
+
+[project.scripts]
+file-upload-guard = "file_upload_guard.cli:main"

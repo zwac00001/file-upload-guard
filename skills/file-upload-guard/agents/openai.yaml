@@ -1,0 +1,3 @@
+display_name: File Upload Guard
+short_description: Force summary-first local file analysis without direct uploads.
+default_prompt: Use this skill when local project or file analysis must avoid raw file uploads.

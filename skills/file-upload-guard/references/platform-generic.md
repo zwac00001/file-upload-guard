@@ -4,6 +4,7 @@
 
 - Make the `file-upload-guard` CLI available on the local machine.
 - Load `skills/file-upload-guard/SKILL.md` into the platform's reusable skill or system instruction mechanism.
+- If the platform only copies the skill directory, call the bundled wrapper in `skills/file-upload-guard/scripts/file-upload-guard.cmd` or run `scripts/run_file_upload_guard.py` directly.
 
 ## Required Behavior
 

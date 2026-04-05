@@ -11,6 +11,10 @@ Use this skill whenever an agent needs to inspect local files without uploading 
 
 This skill is mandatory for local project analysis and local file inspection.
 
+If the platform only installs the `skills/file-upload-guard` directory, use the bundled runner in `scripts/` instead of assuming a globally installed CLI.
+
+The bundled runner preserves the same `file-upload-guard project-summary`, `file-upload-guard file-summary`, `file-upload-guard file-page`, and `file-upload-guard extract-text` workflow.
+
 ## Mandatory Contract
 
 1. Invoke this skill when the task involves a local project, repository, or file.
@@ -24,7 +28,7 @@ This skill is mandatory for local project analysis and local file inspection.
 1. Start with a project overview:
 
 ```powershell
-file-upload-guard project-summary --root <ROOT_PATH>
+skills/file-upload-guard/scripts/file-upload-guard.cmd project-summary --root <ROOT_PATH>
 ```
 
 If hidden files matter, add `--include-hidden`.
@@ -35,19 +39,19 @@ If path patterns should be skipped, repeat `--ignore-glob <PATTERN>`.
 2. If the model needs more detail, summarize a single file:
 
 ```powershell
-file-upload-guard file-summary --path <FILE_PATH>
+skills/file-upload-guard/scripts/file-upload-guard.cmd file-summary --path <FILE_PATH>
 ```
 
 3. If the model needs exact content, send only the requested page:
 
 ```powershell
-file-upload-guard file-page --path <FILE_PATH> --page <PAGE_NUMBER>
+skills/file-upload-guard/scripts/file-upload-guard.cmd file-page --path <FILE_PATH> --page <PAGE_NUMBER>
 ```
 
 4. If the file is a PDF or Word document, extract text before paging:
 
 ```powershell
-file-upload-guard extract-text --path <FILE_PATH>
+skills/file-upload-guard/scripts/file-upload-guard.cmd extract-text --path <FILE_PATH>
 ```
 
 ## Rules

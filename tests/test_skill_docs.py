@@ -34,3 +34,32 @@ def test_generic_platform_notes_document_root_level_project_summary_flags():
     assert "--ignore-dir" in generic_text
     assert "--ignore-file" in generic_text
     assert "--ignore-glob" in generic_text
+
+
+def test_skill_bundle_includes_local_python_runner():
+    skill_root = Path("skills/file-upload-guard")
+
+    expected_files = [
+        skill_root / "scripts" / "run_file_upload_guard.py",
+        skill_root / "scripts" / "file-upload-guard.cmd",
+        skill_root / "scripts" / "file_upload_guard" / "__init__.py",
+        skill_root / "scripts" / "file_upload_guard" / "cli.py",
+        skill_root / "scripts" / "file_upload_guard" / "project_summary.py",
+        skill_root / "scripts" / "file_upload_guard" / "file_summary.py",
+        skill_root / "scripts" / "file_upload_guard" / "file_page.py",
+        skill_root / "scripts" / "file_upload_guard" / "extractors.py",
+        skill_root / "scripts" / "file_upload_guard" / "io_utils.py",
+        skill_root / "scripts" / "file_upload_guard" / "protocol.py",
+    ]
+
+    missing = [str(path) for path in expected_files if not path.exists()]
+    assert not missing, f"Missing bundled skill files: {missing}"
+
+
+def test_codebuddy_notes_reference_bundled_wrapper():
+    codebuddy_text = Path(
+        "skills/file-upload-guard/references/platform-codebuddy.md"
+    ).read_text(encoding="utf-8")
+
+    assert "scripts/file-upload-guard.cmd" in codebuddy_text
+    assert "run_file_upload_guard.py" in codebuddy_text

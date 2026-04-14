@@ -5,6 +5,7 @@ Universal local file analysis guard for agent platforms that cannot upload raw f
 ## What It Includes
 
 - A reusable skill at `skills/file-upload-guard/SKILL.md`
+- A Codex plugin bundle at `plugins/file-upload-guard/`
 - A local CLI under `src/file_upload_guard`
 - Thin wrapper notes for `codebuddyAgent` and Codex App under `adapters/`
 - Specs, plan notes, and tests for the workflow
@@ -39,6 +40,7 @@ file-upload-guard extract-text --path <FILE_PATH>
 
 ```text
 skills/file-upload-guard/   Universal skill and platform notes
+plugins/file-upload-guard/  Codex plugin bundle for auto-discovery
 src/file_upload_guard/      Local helper CLI implementation
 adapters/                   Thin platform wrappers
 docs/                       Design and implementation notes
@@ -60,3 +62,23 @@ Then invoke the bundled runner:
 ```powershell
 python "$CODEX_HOME/skills/file-upload-guard/scripts/run_file_upload_guard.py" project-summary --root .
 ```
+
+## Codex Plugin Install
+
+For Codex's home-local plugin path, copy:
+
+- `plugins/file-upload-guard/` to `~/plugins/file-upload-guard`
+- `.agents/plugins/marketplace.json` to `~/.agents/plugins/marketplace.json`
+
+After that, restart Codex so it reloads the local marketplace.
+
+## Stronger Codex Defaults
+
+If you want Codex to prefer this workflow for local file analysis tasks, add two local configs:
+
+1. `~/.codex/config.toml`
+   Add the skill path with `enabled = true`
+2. `~/.codex/AGENTS.md`
+   Add a rule that requires `$file-upload-guard` before local project or local file analysis
+
+This strengthens default behavior for local file analysis, but it is not a guaranteed hard pre-hook for every unrelated command.

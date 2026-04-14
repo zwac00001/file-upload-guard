@@ -1,0 +1,20 @@
+{
+  "name": "zwac00001-local",
+  "interface": {
+    "displayName": "zwac00001 local plugins"
+  },
+  "plugins": [
+    {
+      "name": "file-upload-guard",
+      "source": {
+        "source": "local",
+        "path": "./plugins/file-upload-guard"
+      },
+      "policy": {
+        "installation": "INSTALLED_BY_DEFAULT",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Coding"
+    }
+  ]
+}

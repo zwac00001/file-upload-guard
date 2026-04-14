@@ -1,0 +1,7 @@
+interface:
+  display_name: "File Upload Guard"
+  short_description: "Guard summary-first local file analysis without raw uploads"
+  default_prompt: "Use $file-upload-guard to inspect local projects and files without attaching raw uploads."
+
+policy:
+  allow_implicit_invocation: true

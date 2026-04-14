@@ -1,0 +1,38 @@
+{
+  "name": "file-upload-guard",
+  "version": "0.1.0",
+  "description": "Prevent raw local file uploads by forcing summary-first, paginated local analysis in Codex.",
+  "author": {
+    "name": "zwac00001",
+    "email": "425156342@qq.com",
+    "url": "https://github.com/zwac00001"
+  },
+  "homepage": "https://github.com/zwac00001/file-upload-guard",
+  "repository": "https://github.com/zwac00001/file-upload-guard",
+  "license": "UNLICENSED",
+  "keywords": [
+    "codex",
+    "local-files",
+    "project-analysis",
+    "skill",
+    "upload-guard"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "File Upload Guard",
+    "shortDescription": "Guard local file analysis from raw uploads",
+    "longDescription": "Require summary-first, paginated local file analysis in Codex so repository and file inspection uses extracted text instead of direct file attachments.",
+    "developerName": "zwac00001",
+    "category": "Coding",
+    "capabilities": [
+      "Interactive",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/zwac00001/file-upload-guard",
+    "defaultPrompt": [
+      "Analyze this local project without uploading raw files."
+    ],
+    "brandColor": "#0169CC",
+    "screenshots": []
+  }
+}

@@ -63,3 +63,26 @@ def test_codebuddy_notes_reference_bundled_wrapper():
 
     assert "scripts/file-upload-guard.cmd" in codebuddy_text
     assert "run_file_upload_guard.py" in codebuddy_text
+
+
+def test_codex_notes_reference_installed_skill_root_and_python_runner():
+    codex_text = Path(
+        "skills/file-upload-guard/references/platform-codex.md"
+    ).read_text(encoding="utf-8")
+
+    assert "$CODEX_HOME/skills/file-upload-guard" in codex_text
+    assert "run_file_upload_guard.py" in codex_text
+    assert "Do not attach or upload the raw local file directly." in codex_text
+
+
+def test_codex_openai_yaml_uses_interface_block_and_skill_prompt():
+    openai_yaml = Path(
+        "skills/file-upload-guard/agents/openai.yaml"
+    ).read_text(encoding="utf-8")
+
+    assert "interface:" in openai_yaml
+    assert 'display_name: "File Upload Guard"' in openai_yaml
+    assert "short_description:" in openai_yaml
+    assert 'default_prompt: "Use $file-upload-guard' in openai_yaml
+    assert "policy:" in openai_yaml
+    assert "allow_implicit_invocation: true" in openai_yaml

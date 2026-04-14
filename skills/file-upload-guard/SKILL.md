@@ -15,6 +15,8 @@ If the platform only installs the `skills/file-upload-guard` directory, use the 
 
 The bundled runner preserves the same `file-upload-guard project-summary`, `file-upload-guard file-summary`, `file-upload-guard file-page`, and `file-upload-guard extract-text` workflow.
 
+For Codex, install this skill under `$CODEX_HOME/skills/file-upload-guard` or `~/.codex/skills/file-upload-guard`, then invoke `scripts/run_file_upload_guard.py` from that installed skill root.
+
 ## Mandatory Contract
 
 1. Invoke this skill when the task involves a local project, repository, or file.

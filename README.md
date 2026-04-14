@@ -50,3 +50,13 @@ tests/                      Regression tests
 ```powershell
 .venv\Scripts\python.exe -m pytest tests -q
 ```
+
+## Codex Install
+
+Copy `skills/file-upload-guard` to `$CODEX_HOME/skills/file-upload-guard` or `~/.codex/skills/file-upload-guard` when `CODEX_HOME` is unset.
+
+Then invoke the bundled runner:
+
+```powershell
+python "$CODEX_HOME/skills/file-upload-guard/scripts/run_file_upload_guard.py" project-summary --root .
+```

@@ -72,6 +72,27 @@ For Codex's home-local plugin path, copy:
 
 After that, restart Codex so it reloads the local marketplace.
 
+### Another Windows Machine
+
+```powershell
+git clone https://github.com/zwac00001/file-upload-guard.git
+New-Item -ItemType Directory -Force "$env:USERPROFILE\\plugins" | Out-Null
+New-Item -ItemType Directory -Force "$env:USERPROFILE\\.agents\\plugins" | Out-Null
+
+Copy-Item -LiteralPath ".\\file-upload-guard\\plugins\\file-upload-guard" -Destination "$env:USERPROFILE\\plugins" -Recurse -Force
+Copy-Item -LiteralPath ".\\file-upload-guard\\.agents\\plugins\\marketplace.json" -Destination "$env:USERPROFILE\\.agents\\plugins\\marketplace.json" -Force
+
+python -m pip install pypdf python-docx PyYAML
+```
+
+Then restart Codex and verify with:
+
+```powershell
+python "$env:USERPROFILE\\plugins\\file-upload-guard\\skills\\file-upload-guard\\scripts\\run_file_upload_guard.py" project-summary --root .
+```
+
+If the command prints `PROJECT-OVERVIEW`, the plugin bundle is installed correctly.
+
 ## Stronger Codex Defaults
 
 If you want Codex to prefer this workflow for local file analysis tasks, add two local configs:

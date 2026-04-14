@@ -14,6 +14,9 @@ def test_readme_describes_skill_and_cli_workflow():
     assert "file-page" in readme_text
     assert "extract-text" in readme_text
     assert "~/.codex/AGENTS.md" in readme_text
+    assert 'git clone https://github.com/zwac00001/file-upload-guard.git' in readme_text
+    assert '$env:USERPROFILE\\\\plugins' in readme_text
+    assert 'PROJECT-OVERVIEW' in readme_text
 
 
 def test_gitignore_excludes_local_env_and_cache_artifacts():
